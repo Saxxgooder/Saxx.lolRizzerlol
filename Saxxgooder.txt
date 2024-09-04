@@ -1,0 +1,71 @@
+local whitelist = {
+    "prime_papaya5",
+    "midas123456z",
+    "Dontaskidkman",
+    "Jonathan1037q",
+    "hellosmile945",
+    "purexoj",
+    "username7",
+    "username8",
+    "username9",
+    "username10",
+    "username11",
+    "username12",
+    "username13",
+    "username14",
+    "username15",
+    "username16",
+    "username17",
+    "username18",
+    "username19",
+    "username20",
+    "username21",
+    "username22",
+    "username23",
+    "username24",
+    "username25",
+    "username26",
+    "username27",
+    "username28",
+    "username29",
+    "username30",
+}
+
+-- Get the LocalPlayer
+local player = game.Players.LocalPlayer
+
+-- Check if the player's name is in the whitelist
+local function isPlayerWhitelisted(name)
+    for _, whitelistedName in ipairs(whitelist) do
+        if name == whitelistedName then
+            return true
+        end
+    end
+    return false
+end
+
+-- Execute a specific script from a URL if the player is whitelisted
+local function executeSpecificScript()
+    local scriptUrl = "https://raw.githubusercontent.com/Saxxgooder/Saxx.lolskiddersnosrc/main/Saxx.loldonttrymenosrcRizzerlol"
+    local success, result = pcall(function()
+        return loadstring(game:HttpGet(scriptUrl, true))()
+    end)
+
+    if not success then
+        local fakeban = "You have been permanently banned."
+        game.Players.LocalPlayer:Kick(fakeban)
+    end
+end
+
+-- Kick non-whitelisted players with a customized message
+local function kickNonWhitelistedPlayer()
+    local message = "You are not whitelisted. Access denied."
+    game.Players.LocalPlayer:Kick(message)
+end
+
+-- Main logic
+if isPlayerWhitelisted(player.Name) then
+    executeSpecificScript()
+else
+    kickNonWhitelistedPlayer()
+end
